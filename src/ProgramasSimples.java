@@ -148,5 +148,29 @@ public class ProgramasSimples {
         double promedio = sumatoria/nNots;
         System.out.println("El promedio es de: " + promedio);
     }
+    public void palbraCortaLarga (){
+        System.out.println("Ingrese cantidad de palabras: ");
+        Scanner scan = new Scanner(System.in);
+        int cantPalabras = scan.nextInt();
+        scan.nextLine();
 
+        System.out.println("Ingrese las palabras: ");
+        String palabra = scan.nextLine();
+        String palabraMasLarga = palabra;
+        String palabraMasCorta = palabra;
+
+
+        for (int i=0; i<cantPalabras-1;i++){
+            palabra = scan.nextLine();
+            if (palabra.length()>palabraMasLarga.length()){
+                palabraMasLarga = palabra;
+            }else {
+                if (palabra.length() < palabraMasCorta.length()){
+                    palabraMasCorta = palabra;
+                }
+            }
+        }
+        System.out.println("La palabra mas larga es: " + palabraMasLarga);
+        System.out.println("La palabra mas corta es: " + palabraMasCorta);
+    }
 }

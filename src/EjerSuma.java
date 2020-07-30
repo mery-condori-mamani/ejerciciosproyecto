@@ -7,7 +7,7 @@ public class EjerSuma {
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese la cantidad de numeros que desee ordenar: ");
         int canNum = scan.nextInt();
-        System.out.println("Ingrese los numeros:" + canNum + " a ordenar ");
+        System.out.println("Ingrese los: " + canNum + " numeros a ordenar ");
 
         int [] numeros = new int[canNum];
 
