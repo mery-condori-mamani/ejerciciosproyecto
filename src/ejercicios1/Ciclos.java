@@ -68,7 +68,31 @@ public class Ciclos {
             }
         }
     }
-    public void csv(){
-        
+    public void tiempoDeViaje(){
+        System.out.print("");
+        Scanner scan = new Scanner(System.in);
+        int tiempoTotalViaje = 0;
+        int res = 0;
+        int hora = 0;
+        int aux=1;
+
+        while ( aux >0){
+            int tramo = scan.nextInt();
+            System.out.print("Duracion tramo: " + tramo);
+            tiempoTotalViaje += tramo;
+            if (tramo == 0){
+                aux = 0;
+            }
+            if (tiempoTotalViaje <= 60){
+                res = tiempoTotalViaje;
+
+            }else {
+                hora = tiempoTotalViaje / 60 ;
+                tiempoTotalViaje = tiempoTotalViaje % 60;
+            }
+        }
+        System.out.println("Tiempo total de viaje: " + hora +
+                ":" + res + "horas");
+
     }
 }
