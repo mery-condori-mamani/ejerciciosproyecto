@@ -69,7 +69,7 @@ public class Ciclos {
         }
     }
     public void tiempoDeViaje(){
-        System.out.print("");
+        System.out.print("Duracion tramo: ");
         Scanner scan = new Scanner(System.in);
         int tiempoTotalViaje = 0;
         int res = 0;
@@ -85,14 +85,36 @@ public class Ciclos {
             }
             if (tiempoTotalViaje <= 60){
                 res = tiempoTotalViaje;
-
             }else {
                 hora = tiempoTotalViaje / 60 ;
                 tiempoTotalViaje = tiempoTotalViaje % 60;
             }
         }
-        System.out.println("Tiempo total de viaje: " + hora +
-                ":" + res + "horas");
-
+        if (res<10){
+            System.out.println("");
+            System.out.println("Tiempo total de viaje: " + hora +
+                    ":0" + res + " horas");
+        } else {
+            System.out.println("");
+            System.out.println("Tiempo total de viaje: " + hora +
+                    ":" + res + " horas");
+        }
     }
+    public void dibujosDeAsteriscoRectangulo (){
+        System.out.print("Ingrese altura: ");
+        Scanner scan = new Scanner(System.in);
+        int altura = scan.nextInt();
+
+        System.out.print("Ingrese ancho: ");
+        int ancho = scan.nextInt();
+        System.out.println("Altura: " + altura);
+        System.out.println("Ancho: " + ancho);
+        for (int i =0; i < altura; i++){
+            for (int j=0; j<ancho; j++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+    }
+    
 }
