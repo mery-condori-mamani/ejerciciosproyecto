@@ -48,12 +48,23 @@ public class Ciclos {
             }
             System.out.println("");
         }
-        /*for (int i = 1; i <=10; i ++) {
-            for (int j = 1; j <= 10; j++) {
-                System.out.print("");
+    }
+    public void tablaDeMultiplicar2 () {
+        System.out.println("La tabla de multiplicar es de: ");
+        int llenado = 0;
+        int aux = 1;
+        int aux2 = 1;
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+             llenado = (i+1)*(j+1);
+             System.out.printf("%5d ", llenado );
+             // para alinear a la derecha se usa [%(cantidad de espacio)d]
+                // y una [,] para separa y añadir lo que se imprimira
+                // para la izquierda resta la cantidad de espacio
             }
             System.out.println("");
-        }*/
+        }
     }
     public void divisores (){
         System.out.print("Ingrese numero: ");
@@ -116,5 +127,22 @@ public class Ciclos {
             System.out.println("");
         }
     }
-    
+    public void dibujosDeAsteriscosTriangulo(){
+        System.out.print("Ingrese altura: ");
+        Scanner scan = new Scanner(System.in);
+        int altura = scan.nextInt();
+        int asteriscos = 0;
+        
+        for (int i=0; i<altura; i++){
+            for (int j=0; j<altura; j++){
+                if (j <= asteriscos + i){
+                    System.out.print("*");
+                }
+            }
+            System.out.println("");
+        }
+    }
+    public void dibujoDeAsteriscosHexagono (){
+
+    }
 }
