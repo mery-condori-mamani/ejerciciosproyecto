@@ -142,7 +142,33 @@ public class Ciclos {
             System.out.println("");
         }
     }
-    public void dibujoDeAsteriscosHexagono (){
+   /* public void dibujoDeAsteriscosHexagono (){
+        System.out.print("");
+    }*/
+    public void calculoDePi () {
+        System.out.print("Ingrese numero de terminos a sumar: ");
+        Scanner scan = new Scanner(System.in);
+        double numero = scan.nextInt();
+        double i = 1;
+        double j = 3;
+        double pi = 0.0;
+        double aux =0;
+        double aux2 = 0;
+        int contador = 0;
 
+        while (contador<numero ){
+            if( contador < numero){
+                aux += (1 / i);
+                i += 4;
+                contador ++;
+            }
+            if ( contador < numero){
+                aux2 -= (1 / j);
+                j += 4;
+                contador = contador + 1;
+            }
+            pi = 4 * ( aux + aux2);
+        }
+        System.out.print(pi);
     }
 }
