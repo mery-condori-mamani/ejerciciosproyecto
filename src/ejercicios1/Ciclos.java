@@ -171,4 +171,21 @@ public class Ciclos {
         }
         System.out.print(pi);
     }
+    public void sumaDeFracciones (){
+        double fraccion = 0.5;
+        int potencia = 1;
+        double suma = 0;
+        System.out.print("Potencia " + " " + " Fraccion " + "        " + " Suma ");
+        System.out.println("");
+        while (fraccion >= 0.000001){
+            suma += fraccion;
+            System.out.print("" + potencia + "          " + fraccion + "               " + suma);
+            System.out.println("");
+            fraccion = fraccion * (0.5);
+            potencia += 1;
+        }
+    }
+    public void e (){
+        System.out.print("");
+    }
 }
