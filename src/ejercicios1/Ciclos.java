@@ -186,6 +186,34 @@ public class Ciclos {
         }
     }
     public void e (){
-        System.out.print("");
+        double factorial = 0;
+        double primerFactorial = 0.0;
+        double segundoFactorial =0.0;
+        double e = 0.0;
+        double primerAux = 0.0;
+        double segundoAux = 0.0;
+        double res = 1;
+
+        while (primerFactorial - segundoFactorial < 0.0001 ){
+            primerAux = this.calculoDelFactorialNumero(factorial, res);
+            primerFactorial = 1 / primerAux;
+            factorial++;
+            e = e + primerFactorial;
+            segundoAux = this.calculoDelFactorialNumero(factorial, res);
+            segundoFactorial= 1/ segundoAux;
+            factorial++;
+            e = e + segundoFactorial;
+        }
+        System.out.print("EL factorial es: " + e);
+    }
+    private double calculoDelFactorialNumero(double factorial, double res ){
+        if (factorial > 1) {
+            for (double i = 1.0 ; i <= factorial; i++) {
+                res = res * i;
+            }
+        } else {
+            res = 1;
+        }
+        return res;
     }
 }
