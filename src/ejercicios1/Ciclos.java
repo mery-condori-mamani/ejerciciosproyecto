@@ -216,4 +216,51 @@ public class Ciclos {
         }
         return res;
     }
+    public void secuenciaDeCollatz (){
+        System.out.print("Ingrese numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        System.out.print(" " + numero);
+        while (numero > 1){
+            if (numero % 2 == 0){
+                numero = numero / 2;
+                System.out.print(" " + numero);
+            } else {
+                numero = numero * 3 + 1;
+                System.out.print(" " + numero);
+            }
+        }
+    }
+    public void secuenciaDeCollatzAsteriscos (){
+        System.out.print("Ingrese numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        int contador = 0;
+        int aux = 0;
+
+        for(int i = 0; i < numero;i++){
+            aux = i + 1;
+            contador = i +1;
+            if ( aux >1){
+                System.out.print( contador + " " );
+                System.out.print(this.secuenciaCollatz(aux));
+                System.out.println("");
+            } else {
+                System.out.println( contador + " " + "*" );
+            }
+        }
+    }
+    private String secuenciaCollatz (int aux) {
+        String res ="*";
+        while (aux > 1) {
+            if (aux % 2 == 0) {
+                aux = aux / 2;
+                res = res + "*";
+            } else {
+                aux = aux * 3 + 1;
+                res = res + "*";
+            }
+        }
+        return res;
+    }
 }
