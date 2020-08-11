@@ -83,9 +83,71 @@ public class ProgramasComunes {
         return res;
     }
     private double numeroDeStirlingDelSegundoTipo(){
+
         double res = 1;
 
         return res;
     }
-
+    public void contarCombinacionesDeDados (){
+        System.out.print("Ingrese el puntaje: ");
+        Scanner scan = new Scanner(System.in);
+        int puntaje = scan.nextInt();
+        int combinaciones =0;
+        int aux = 5;
+        if (puntaje <= 7){
+            for (int i = 0; i < puntaje; i++){
+                combinaciones = i;
+            }
+            System.out.println("Hay " + combinaciones + " combinaciones para obtener " + puntaje);
+        }
+        if (puntaje > 7 && puntaje <= 12){
+            for (int i = 7; i < puntaje; i++ ){
+                combinaciones = aux;
+                aux--;
+            }
+            System.out.println("Hay " + combinaciones + " combinaciones para obtener " + puntaje);
+        }
+        if (puntaje > 12){
+            System.out.println("Hay 0 combinaciones para obtener " + puntaje);
+        }
+    }
+    public void histograma (){
+        System.out.println("Ingrese numeros: ");
+        Scanner scan = new Scanner(System.in);
+        int numeros = 1;
+        String positivos = "";
+        String negativos = "";
+        while (numeros != 0){
+            numeros = scan.nextInt();
+            if (numeros < 0){
+                negativos += "*";
+            }
+            if (numeros > 0){
+                positivos += "*";
+            }
+        }
+        System.out.println("Positivos: " + positivos);
+        System.out.println("Negativos: " + negativos);
+    }
+    public void masCortaYMasLarga (){
+        System.out.println("Ingrese cantidad de palabras a ingresar: ");
+        Scanner scan = new Scanner(System.in);
+        int cantidadPalabras = scan.nextInt();
+        String palabras = "";
+        scan.nextLine();
+        String palabraLarga =palabras;
+        String palabraCorta =palabras;
+        for (int i=0; i < cantidadPalabras; i++){
+            palabras = scan.nextLine();
+            System.out.print("Palabra " + (i+1) + ": " + palabras);
+            if (palabraLarga.length()<palabras.length()) {
+                palabraLarga = palabras;
+            }else {
+                palabraCorta = palabras;
+            }
+        }
+        System.out.println("");
+        System.out.println("La palabra mas larga es: " + palabraLarga);
+        System.out.println("La palabra mas corta es: " + palabraCorta);
+    }
 }
