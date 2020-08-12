@@ -135,12 +135,12 @@ public class ProgramasComunes {
         int cantidadPalabras = scan.nextInt();
         String palabras = "";
         scan.nextLine();
-        String palabraLarga =palabras;
-        String palabraCorta =palabras;
+        String palabraLarga ="";
+        String palabraCorta ="";
         for (int i=0; i < cantidadPalabras; i++){
             palabras = scan.nextLine();
-            System.out.print("Palabra " + (i+1) + ": " + palabras);
-            if (palabraLarga.length()<palabras.length()) {
+            System.out.print("Palabra " + (i + 1) + ": " + palabras);
+            if (palabraLarga.length() < palabras.length()) {
                 palabraLarga = palabras;
             }else {
                 palabraCorta = palabras;
@@ -149,5 +149,17 @@ public class ProgramasComunes {
         System.out.println("");
         System.out.println("La palabra mas larga es: " + palabraLarga);
         System.out.println("La palabra mas corta es: " + palabraCorta);
+    }
+    public void piezasDeDomino (){
+
+    }
+    public void lanzarDados (){
+        int aux =6;
+        for (int i = 0; i<aux; i++){
+            for (int j = 0; j < aux; j++){
+                System.out.println( (i+1) + " " + (j+1));
+            }
+            System.out.println("");
+        }
     }
 }
