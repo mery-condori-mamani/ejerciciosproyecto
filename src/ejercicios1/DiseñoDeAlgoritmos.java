@@ -14,16 +14,21 @@ public class DiseñoDeAlgoritmos {
         System.out.println("Ingrese numero: ");
         Scanner scan = new Scanner(System.in);
         int numero = scan.nextInt();
-        //int numeroInvertido = this.invertirNumero(numero);
+        int moduloNumero = 0;
+        int restaModulo = 0;
+
         int multiplicadoDigitos = this.multiplicarDigitos(numero);
-        System.out.println(multiplicadoDigitos);
+        moduloNumero = multiplicadoDigitos % 11;
+        restaModulo = Math.abs(moduloNumero - 11);
+
+        System.out.println(numero + "-" + restaModulo);
     }
     public int invertirNumero (int numero){
-        String aux ="";
-        while (numero>0){
-            int ultimoValor = numero%10;
+        String aux = "";
+        while (numero > 0){
+            int ultimoValor = numero % 10;
             aux = Integer.toString(ultimoValor);
-            numero = numero/10;
+            numero = numero / 10;
         }
         return Integer.parseInt(aux);
     }
@@ -31,15 +36,13 @@ public class DiseñoDeAlgoritmos {
         int res =0;
         int aux1 =0;
         int contador =2;
-        String aux ="";
-        while (numeroInvertido>0){
-            int ultimoValor = numeroInvertido%10;
-            aux = Integer.toString(ultimoValor);
-            numeroInvertido = numeroInvertido/10;
+        while (numeroInvertido > 0){
             if (contador <=7){
-                res = ultimoValor*contador;
-                aux1 = aux1 +res;
-                contador++;
+            int ultimoValor = numeroInvertido%10;
+            numeroInvertido = numeroInvertido/10;
+            res = ultimoValor*contador;
+            aux1 = aux1 +res;
+            contador++;
             } else {
                 contador =2;
             }
@@ -47,9 +50,24 @@ public class DiseñoDeAlgoritmos {
         return aux1;
     }
 
-
     public void ecuacionPrimerGrado (){
-
+        System.out.println("Ingrese a: ");
+        Scanner scan = new Scanner(System.in);
+        double a = scan.nextDouble();
+        System.out.println("Ingrese b: ");
+        double b = scan.nextDouble();
+        double x = 0.0;
+        if (a != 0 ){
+            x = -1 * (b / a);
+            System.out.println("Solucion unica: " + x);
+        } else {
+            if (a==0 && b !=0){
+                System.out.println("Sin solucion");
+            }
+            if (a==0 && b==0){
+                System.out.println("No hay solucion unica");
+            }
+        }
     }
     public void caballoDeAjedrez (){
         System.out.print("Ingrese coordenadas del caballo");
