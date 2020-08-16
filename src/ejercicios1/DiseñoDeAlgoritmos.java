@@ -27,7 +27,7 @@ public class DiseñoDeAlgoritmos {
         String aux = "";
         while (numero > 0){
             int ultimoValor = numero % 10;
-            aux = Integer.toString(ultimoValor);
+            aux += Integer.toString(ultimoValor);
             numero = numero / 10;
         }
         return Integer.parseInt(aux);
@@ -71,17 +71,71 @@ public class DiseñoDeAlgoritmos {
     }
     public void caballoDeAjedrez (){
         System.out.print("Ingrese coordenadas del caballo");
+
+
+    }
+    public void mediaArmonica (){
+        System.out.print("Cuantos numeros: ");
         Scanner scan = new Scanner(System.in);
-        int fila = scan.nextInt();
-        int columna = scan.nextInt();
-
-        System.out.print("Fila: " + fila);
-        System.out.print("Columna: " + columna);
-
-        int [][] matriz8x8 = {};
-        if (fila <= 0){
-
+        double cantidadDeNumeros = scan.nextInt();
+        double aux = 0;
+        double sumatoria = 0;
+        double mediaArmonica = 0;
+        for (int i=0; i<cantidadDeNumeros;i++){
+            System.out.print("n" + (i+1) + " = ");
+            double numeros = scan.nextInt();
+            aux = 1/numeros;
+            sumatoria = sumatoria + aux;
         }
-
+        mediaArmonica = cantidadDeNumeros/sumatoria;
+        System.out.print("H = " + mediaArmonica);
+    }
+    public void numerosPalindromos (){
+        System.out.print("Ingrese un numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        int numeroInvertido = invertirNumero(numero);
+        if (numero == numeroInvertido){
+            System.out.println(numero + " es palindromo");
+        } else {
+            System.out.println(numero + " no es palindromo");
+        }
+    }
+    public void palabrasPalindromas (){
+        System.out.println("Ingrese palabra: ");
+        Scanner scan = new Scanner(System.in);
+        String palabra = scan.nextLine();
+        String palabraInvertida = this.invertirPalabra(palabra);
+        if (palabra.equals(palabraInvertida)){
+            System.out.println(palabra + " es palindromo");
+        } else {
+            System.out.println(palabra + " no es palindromo");
+        }
+    }
+    private String invertirPalabra (String palabra){
+        String palabraInvertida= "";
+        for (int i = (palabra.length()-1); i>=0 ;i--){
+            palabraInvertida += palabra.charAt(i);
+        }
+        return palabraInvertida;
+    }
+    public void palabrasPalindromasSinEspacio (){
+        System.out.println("Ingrese palabra: ");
+        Scanner scan = new Scanner(System.in);
+        String palabra = scan.nextLine();
+        String aux = palabra.replaceAll("\\s","");
+        String palabraInvertida = this.invertirPalabraSinEspacio(aux);
+        if (aux.equals(palabraInvertida)){
+            System.out.println("Es palindromo");
+        } else {
+            System.out.println("No es palindromo");
+        }
+    }
+    private String invertirPalabraSinEspacio (String aux){
+        String palabraInvertida= "";
+        for (int i = (aux.length()-1); i>=0 ;i--){
+            palabraInvertida += aux.charAt(i);
+        }
+        return palabraInvertida;
     }
 }

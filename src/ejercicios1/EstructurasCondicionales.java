@@ -44,10 +44,10 @@ public class EstructurasCondicionales {
         }
     }
     public void division (){
-        System.out.println("Ingrse el dividendo: ");
+        System.out.println("Ingrese el dividendo: ");
         Scanner scan = new Scanner(System.in);
         int dividendo = scan.nextInt();
-        System.out.println("Ingrse el divisor: ");
+        System.out.println("Ingrese el divisor: ");
         int divisor = scan.nextInt();
 
         // Realizando la division
@@ -90,24 +90,30 @@ public class EstructurasCondicionales {
         Scanner scan = new Scanner(System.in);
         int cantidadNumero = scan.nextInt();
         System.out.println("Ingrese los numeros: ");
-        int [] numeros = {};
-        //int [] menor = {};
-       // int [] res = {};
+        scan.nextLine();
+        String numero = "";
+        int aux=0;
 
-        for (int i = 0; i < cantidadNumero; i++){
-            numeros [i] = scan.nextInt();
+        String resultado = "";
+        int mayor = 0;
+        int menor =0;
 
-            /*if (numeros [i] > menor [i]){
-                menor [i]= numeros [i];
-                res [i] += menor [i];
-            } else {
-                if (numeros [i] < menor[i]){
-                    menor[i] = menor[i];
-                }*/
+        for (int i =0; i<cantidadNumero; i++) {
+            for (int j = 0; j < cantidadNumero; j++) {
+                numero = scan.nextLine();
+                aux = Integer.parseInt(numero);
+                if (i > 0) {
+                    if (aux <= menor) {
+                        menor = aux;
+                        resultado += menor;
+
+                    } else {
+                        menor = menor;
+                    }
+                }
+            }
+            System.out.print("Los numeros ordenados son: " + resultado);
         }
-        System.out.print("Los numeros ordenados son: " + numeros);
-
-
     }
     public void letraNumero (){
         System.out.println("Ingrese el caracter: ");
@@ -215,3 +221,4 @@ public class EstructurasCondicionales {
         //System.out.println(indiceDeMasaCorporal);
     }
 }
+

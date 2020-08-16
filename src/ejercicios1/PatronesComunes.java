@@ -1,7 +1,7 @@
 package ejercicios1;
 import java.util.Scanner;
 
-public class ProgramasComunes {
+public class PatronesComunes {
     public void noMultiplo (){
         System.out.print("Ingrese numero: ");
         Scanner scan = new Scanner(System.in);
@@ -70,7 +70,6 @@ public class ProgramasComunes {
         return factorial;
     }
     private int  potenciaFactorialCrecinete(int numero, int potencia){
-
         int res =1;
         for (int i =0; i< potencia;i++){
             res = res*(numero+i);
