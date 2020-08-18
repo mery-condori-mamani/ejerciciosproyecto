@@ -33,18 +33,18 @@ public class DiseñoDeAlgoritmos {
         return Integer.parseInt(aux);
     }
     public int multiplicarDigitos (int numeroInvertido){
-        int res =0;
-        int aux1 =0;
-        int contador =2;
+        int res = 0;
+        int aux1 = 0;
+        int contador = 2;
         while (numeroInvertido > 0){
-            if (contador <=7){
-            int ultimoValor = numeroInvertido%10;
-            numeroInvertido = numeroInvertido/10;
-            res = ultimoValor*contador;
-            aux1 = aux1 +res;
+            if (contador <= 7){
+            int ultimoValor = numeroInvertido % 10;
+            numeroInvertido = numeroInvertido / 10;
+            res = ultimoValor * contador;
+            aux1 = aux1 + res;
             contador++;
             } else {
-                contador =2;
+                contador = 2;
             }
         }
         return aux1;
@@ -61,10 +61,10 @@ public class DiseñoDeAlgoritmos {
             x = -1 * (b / a);
             System.out.println("Solucion unica: " + x);
         } else {
-            if (a==0 && b !=0){
+            if (b !=0){
                 System.out.println("Sin solucion");
             }
-            if (a==0 && b==0){
+            if (b==0){
                 System.out.println("No hay solucion unica");
             }
         }
@@ -137,5 +137,130 @@ public class DiseñoDeAlgoritmos {
             palabraInvertida += aux.charAt(i);
         }
         return palabraInvertida;
+    }
+    public void cachipun (){
+        Scanner scan = new Scanner(System.in);
+        int puntosA = 0;
+        int puntosB = 0;
+        while (puntosA < 3 && puntosB < 3){
+            System.out.print("A: ");
+            String jugadaDeA= scan.nextLine();
+            System.out.print("B: ");
+            String jugadaDeB = scan.nextLine();
+            if (jugadaDeA.equals("tijera")  && jugadaDeB.equals("papel") ){
+                puntosA++;
+            }
+            if (jugadaDeA.equals("piedra") && jugadaDeB.equals("papel")){
+                puntosB++;
+            }
+            if (jugadaDeA.equals("piedra") && jugadaDeB.equals("tijera")){
+                puntosA++;
+            }
+            if (jugadaDeA.equals("papel") && jugadaDeB.equals("tijera")){
+                puntosB++;
+            }
+            if (jugadaDeA.equals("papel") && jugadaDeB.equals("piedra")){
+                puntosA++;
+            }
+            if (jugadaDeA.equals("tijera") && jugadaDeB.equals("piedra")){
+                puntosB++;
+            }
+            System.out.println(puntosA + " - " + puntosB);
+        }
+        if (puntosA == 3) {
+            System.out.println("A es el ganador");
+        }
+        if (puntosB == 3){
+           System.out.println("B es el ganador");
+        }
+    }
+    public void numerosPrimos (){
+        System.out.println("Ingrse un numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        int contador = 0;
+        int aux = 0;
+        for (int i=1; i<=numero;i++){
+            aux = numero % i;
+            if (aux == 0){
+                contador++;
+            }
+        }
+        if (contador == 2){
+            System.out.println(numero + " es primo");
+        } else {
+            System.out.println(numero + " es compuesto");
+        }
+    }
+    public void nNumerosPrimos (){
+        System.out.println("Cuantos primos: ");
+        Scanner scan = new Scanner(System.in);
+        int cantidadPrimos = scan.nextInt();
+        int numero = 1;
+        int contador = 0;
+        while (cantidadPrimos > contador){
+            numero ++;
+            if (this.numerosPrimos(numero) ){
+                contador ++;
+                System.out.println(numero);
+            }
+        }
+    }
+    private boolean numerosPrimos (int numero){
+        int contador = 0;
+        boolean res = false;
+        for (int i = 1; i <= numero;i++){
+            if (numero%i == 0){
+                contador++;
+            }
+        }
+        if (contador == 2){
+            res = true;
+        }
+        return res;
+    }
+    public void primosMenoresQue (){
+        System.out.print("Primos menores que: ");
+        Scanner scan = new Scanner(System.in);
+        int numeroAux = scan.nextInt();
+        int numero = 1;
+        while (numero<numeroAux){
+            if (this.numerosPrimos(numero)){
+                System.out.println(numero);
+            }
+            numero++;
+        }
+    }
+    public void contarPrimosMenoresQue (){
+        System.out.print("Contar numeros primos menores que: ");
+        Scanner scan = new Scanner(System.in);
+        int m = scan.nextInt(); // tiene que ser menor a 1 00000 ojo
+        int numero = 1;
+        int contador = 0;
+        if (m < 100000){
+            while (numero < m){
+                if (this.numerosPrimos(numero)){
+                    contador++;
+                }
+                numero++;
+            }
+        }
+        System.out.print("Hay " + contador + " primos menores que " + m );
+    }
+    public void productoDivisoresPrimos (){
+        System.out.print("Ingrese numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        int factorComun = 0;
+        int aux = 0;
+        for (int i = 1 ; i < numero; i++){
+            factorComun = numero/i;
+            aux = i;
+            if (this.numerosPrimos(aux)){
+                numero = factorComun;
+                System.out.print(aux);
+            }
+        }
+
     }
 }
