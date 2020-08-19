@@ -1,6 +1,7 @@
 package ejercicios1;
 
 import java.util.Scanner;
+import java.util.ServiceConfigurationError;
 
 public class DiseñoDeAlgoritmos {
     public void digitos (){
@@ -49,7 +50,6 @@ public class DiseñoDeAlgoritmos {
         }
         return aux1;
     }
-
     public void ecuacionPrimerGrado (){
         System.out.println("Ingrese a: ");
         Scanner scan = new Scanner(System.in);
@@ -71,7 +71,6 @@ public class DiseñoDeAlgoritmos {
     }
     public void caballoDeAjedrez (){
         System.out.print("Ingrese coordenadas del caballo");
-
 
     }
     public void mediaArmonica (){
@@ -251,16 +250,72 @@ public class DiseñoDeAlgoritmos {
         System.out.print("Ingrese numero: ");
         Scanner scan = new Scanner(System.in);
         int numero = scan.nextInt();
-        int factorComun = 0;
+        int numero1 =1;
         int aux = 0;
-        for (int i = 1 ; i < numero; i++){
-            factorComun = numero/i;
-            aux = i;
-            if (this.numerosPrimos(aux)){
-                numero = factorComun;
-                System.out.print(aux);
+        int mcm = Math.max(numero1, numero);
+
+
+        System.out.print(mcm);
+    }
+    private boolean numerosCompuesto (int numero) {
+        int contador = 0;
+        boolean res = false;
+        for (int i = 1; i <= numero; i++) {
+            if (numero % i == 0) {
+                contador++;
             }
+        }
+        if (contador == 2) {
+            res = true;
+        } else {
+            System.out.print("Es numero compuesto");
+        }
+        return res;
+    }
+    public void guardarPrimos () {
+        int[] array = new int[3000];
+        int numero = 1;
+        for (int i = 0; i < array.length; i++){
+            if (this.numerosPrimos(numero)){
+                array[i] = numero;
+                System.out.print(array[i] + " ");
+            }
+            numero++;
+        }
+    }
+    public void mejorNumero (){
+        System.out.print("Ingrese numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        if (this.numerosPrimos(numero)){
+            //if (this.numeroEspejo(numero)){
+              //  System.out.print("Es el mejor numero");
+           // }
         }
 
     }
+    public int numeroEspejo (){
+        System.out.print("Ingrese numero: ");
+        Scanner scan = new Scanner(System.in);
+        int numero = scan.nextInt();
+        final int constante = numero;
+        int ultimoNumero = 0;
+        String aux = "";
+        int numeroAux = 0;
+        while (numero>0){
+            if (numero % 10 !=0){
+                ultimoNumero = numero % 10;
+                aux += Integer.toString(ultimoNumero);
+                numero = numero /10;
+            }
+        }
+        numeroAux = Integer.parseInt(aux);
+        if (numeroAux == constante){
+            System.out.print(numeroAux + " es numero espejo");
+        } else {
+            System.out.print(numeroAux + " no es numero espejo");
+        }
+        return numeroAux;
+    }
 }
+
